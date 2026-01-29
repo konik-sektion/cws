@@ -1,5 +1,4 @@
 #pragma once
-#include <cstdint>
 
 struct GLFWwindow;
 
@@ -11,6 +10,6 @@ class App {
 
     private:
         GLFWwindow* window_ = nullptr;
-        int winW_ = 1280, winH_ = 720;
-        bool running_ = true;
+        int fbW_ = 1280;
+        int fbH_ = 720;
 };
