@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.20)
 project(meteo LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDRD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(glfw3 REQUIRED)
 
 add_library(glad STATIC extern/glad/src/glad.c)
-targer_include_directory(glad PUBLIC extern/glad/include)
+target_include_directory(glad PUBLIC extern/glad/include)
 
 add_library(imgui STATIC
     extern/imgui/imgui.cpp
