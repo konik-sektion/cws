@@ -67,12 +67,23 @@ bool Shader::loadFromFiles(const std::string& vsPath, const std::string& fsPath)
     return true;
 }
 
-void Shader::bind() const { glUseProgram(prog_); }
+bool Shader::isValid() const { return prog_ != 0; }
+
+void Shader::bind() const {
+    if (!prog_) return;
+    glUseProgram(prog_);
+}
 
 void Shader::setInt(const char* name, int v) const {
-    glUniform1i(glGetUniformLocation(prog_, name), v);
+    if (!prog_) return;
+    GLint location = glGetUniformLocation(prog_, name);
+    if (location == -1) return;
+    glUniform1i(location, v);
 }
 
 void Shader::setFloat(const char* name, float v) const {
-    glUniform1f(glGetUniformLocation(prog_, name), v);
+    if (!prog_) return;
+    GLint location = glGetUniformLocation(prog_, name);
+    if (location == -1) return;
+    glUniform1f(location, v);
 }

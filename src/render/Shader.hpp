@@ -8,6 +8,7 @@ class Shader {
         ~Shader();
 
         bool loadFromFiles(const std::string& vsPath, const std::string& fsPath);
+        bool isValid() const;
         void bind() const;
 
         void setInt(const char* name, int v) const;

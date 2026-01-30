@@ -1,11 +1,14 @@
 #include "RasterLayer.hpp"
-#include <vector>
 #include <algorithm>
+#include <cstdio>
+#include <vector>
 
 RasterLayer::RasterLayer(int w, int h, const std::string& vs, const std::string& fs)
     : gridW_(w), gridH_(h)
 {
-    shader_.loadFromFiles(vs, fs);
+    if (!shader_.loadFromFiles(vs, fs)) {
+        std::fprintf(stderr, "Failed to load raster shader: %s %s\n", vs.c_str(), fs.c_str());
+    }
 
     scalar_.createR32F(gridW_, gridH_);
     lut_.createLutRGBA8(256);
@@ -67,6 +70,8 @@ void RasterLayer::buildDefaultColormap() {
 }
 
 void RasterLayer::render(int x, int y, int w, int h) {
+    if (!shader_.isValid()) return;
+
     glViewport(x, y, w, h);
     glEnable(GL_SCISSOR_TEST);
     glScissor(x, y, w, h);
