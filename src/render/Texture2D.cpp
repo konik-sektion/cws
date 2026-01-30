@@ -8,7 +8,7 @@ void Texture2D::createR32F(int w, int h) {
     w_ = w; h_ = h;
     target_ = GL_TEXTURE_2D;
 
-    if (id_) glGenTexture(target_, id_);
+    if (id_) glGenTextures(target_, id_);
     glBindTexture(target_, id_);
 
     glTexImage2D(target_, 0, GL_R32F, w_, h_, 0, GL_RED, GL_FLOAT, nullptr);

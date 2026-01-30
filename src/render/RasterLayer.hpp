@@ -9,7 +9,7 @@ class RasterLayer {
         RasterLayer(int w, int h, const std::string& vs, const std::string& fs);
 
         void uploadScalar(const float* data);
-        void buildDefautlColormap();
+        void buildDefaultColormap();
         void setParams(float vmin, float vmax, float alpha);
 
         void render(int x, int y, int w, int h);

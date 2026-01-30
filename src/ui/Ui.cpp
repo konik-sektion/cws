@@ -55,7 +55,7 @@ void ui_init(GLFWwindow* window) {
 void ui_shutdown() {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext;
+    ImGui::DestroyContext();
 }
 
 void ui_begin() {
@@ -70,6 +70,7 @@ static const char* mode_name(ViewportMode m) {
         case ViewportMode::Two:     return "2 panels";
         case ViewportMode::Four:    return "4 panels";
     }
+    return "1 panel";
 }
 
 void ui_draw(UiState& s) {

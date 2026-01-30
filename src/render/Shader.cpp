@@ -14,7 +14,7 @@ std::string Shader::readFile(const std::string& path) {
     return ss.str();
 }
 
-GLuint Shader::compiler(GLenum type, const std::string& src) {
+GLuint Shader::compile(GLenum type, const std::string& src) {
     GLuint s = glCreateShader(type);
     const char* c = src.c_str();
     glShaderSource(s, 1, &c, nullptr);

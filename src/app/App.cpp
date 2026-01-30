@@ -38,7 +38,7 @@ bool App::init() {
     return true;
 }
 
-void run() {
+void App::run() {
     const int gridW = 512, gridH = 256;
 
     RasterLayer raster(gridW, gridH, "assets/shaders/blit.vert", "assets/shaders/scalar.frag");
@@ -101,6 +101,7 @@ void run() {
 
         glfwSwapBuffers(window_);
     }
+    return true;
 }
 
 void App::shutdown() {

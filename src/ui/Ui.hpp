@@ -5,7 +5,7 @@
 #include "../render/Viewport.hpp"
 
 struct UiState {
-    ViewportMode viewpoerMode = ViewportMode::Four;
+    ViewportMode viewportMode = ViewportMode::Four;
     bool playing = true;
     float alpha = 0.85f;
     float vmin = 0.0f;

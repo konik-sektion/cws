@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-Raster::RasterLayer(int w, int h, const std::string& vs, const std::string& fs)
+RasterLayer::RasterLayer(int w, int h, const std::string& vs, const std::string& fs)
     : gridW_(w), gridH_(h)
 {
     shader_.loadFromFiles(vs, fs);
@@ -55,7 +55,7 @@ void RasterLayer::buildDefaultColormap() {
 
         float r = lerp(a.r, b.r, local);
         float g = lerp(a.g, b.g, local);
-        float bl = lerp(a.b, a.b, local);
+        float bl = lerp(a.b, b.b, local);
 
         rgba[i * 4 + 0] = u8(r);
         rgba[i * 4 + 1] = u8(g);
