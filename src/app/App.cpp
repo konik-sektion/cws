@@ -38,7 +38,7 @@ bool App::init() {
     return true;
 }
 
-void App::run() {
+void run() {
     const int gridW = 512, gridH = 256;
 
     RasterLayer raster(gridW, gridH, "assets/shaders/blit.vert", "assets/shaders/scalar.frag");
